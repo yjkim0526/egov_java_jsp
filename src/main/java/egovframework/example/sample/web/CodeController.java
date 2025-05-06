@@ -3,6 +3,8 @@ package egovframework.example.sample.web;
 import java.util.List;
 
 import javax.annotation.Resource;
+
+import org.aspectj.apache.bcel.generic.ReturnaddressType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,12 +42,32 @@ public class CodeController {
 	public String selectCodeList(CodeVO vo, ModelMap model) throws Exception{
 		
 		int total = codeService.selectCodesCount(vo);
-		
 		List<?> list = codeService.selectCodesList(vo);
     	// System.out.println(list);
     	
     	model.addAttribute("resultTotal", total);		
     	model.addAttribute("resultList", list);		
 		return "code/codeList";
+	}
+	
+	@RequestMapping(value="/codeDelete.do")
+	public String deleteCode(int code) throws Exception{
+		int result = codeService.deleteCodes(code);
+		return "redirect:codeList.do";
+	}
+	
+	@RequestMapping(value="/codeModifyWrite.do")
+	public String selectCodesDetail(int code, ModelMap model) throws Exception{
+		
+		CodeVO vo = codeService.selectCodesDetail(code);
+		model.addAttribute("vo", vo);		
+		return "code/codeModifyWrite";
+	}
+	
+	@RequestMapping(value="/codeModifySave.do")
+	public String updateCodes(CodeVO vo) throws Exception{
+		System.out.println("-------------------- codeModifySave.do   vo :" + vo);
+		int result = codeService.updateCodes(vo);
+		return "redirect:codeList.do";
 	}
 }

@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,21 +129,22 @@ function fn_submit() {
 </head>
 <body>
     <div class="container">
-        <h2>코드 등록</h2>
-        <form name="frm" method="post" action="codeWriteSave.do">
+        <h2>코드 수정</h2>
+        <form name="frm" method="post" action="codeModifySave.do">
+        	<input type="hidden" name="code" value="${vo.code}">
             <table>
                 <tr>
                     <th>분류</th>
                     <td>
-                        <select name="gid">
-                            <option value="1">Job</option>
-                            <option value="2">Hobby</option>
-                        </select>
+						<select name="gid">
+						    <option value="1" ${vo.code == '1' ? 'selected' : ''}>Job</option>
+						    <option value="2" ${vo.code == '2' ? 'selected' : ''}>Hobby</option>
+						</select>
                     </td>				
                 </tr>	
                 <tr>
                     <th>코드명</th>
-                    <td><input type="text" name="name" /></td>	
+                    <td><input type="text" name="name" value="${vo.name}"/></td>
                 </tr>	
             </table>
             <div class="btn-area">

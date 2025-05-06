@@ -33,4 +33,20 @@ public class CodeServiceImpl extends EgovAbstractServiceImpl implements CodeServ
 		return codeDAO.selectCodesCount(vo);
 	}
 
+	@Override
+	public int deleteCodes(int code) throws Exception {
+		return codeDAO.deleteCodes(code);
+	}
+
+	@Override
+	public CodeVO selectCodesDetail(int code) throws Exception {
+		return codeDAO.selectCodesDetail(code);
+	}
+
+	@Override
+	public int updateCodes(CodeVO vo) throws Exception {
+		
+		return codeDAO.updateCodes(vo);
+	}
+
 }

@@ -101,14 +101,39 @@
             padding: 8px 16px;
         }
     }
+    
+    button[type="button"] {
+	    background-color: #fff;
+	    color: #007bff;
+	    border: 1px solid #007bff;
+	    padding: 8px 16px;
+	    border-radius: 5px;
+	    font-size: 14px;
+	    cursor: pointer;
+	    margin: 0 3px;
+	}
+	
+	button[type="button"]:hover {
+	    background-color: #007bff;
+	    color: #fff;
+	}
+
 </style>
 </head>
 <script>
 function fn_delete(code){
-	alert(code);
 	console.log(">>code:"+code);
+	if (confirm("정말 삭제하시겠습니까?"))
+	{
+		location = "codeDelete.do?code="+code;
+	}
 }
 
+function fn_update(code){
+	console.log(">>code:"+code);
+	location = "codeModifyWrite.do?code="+code;
+
+}
 </script>
 <body>
     <div class="container">
@@ -135,7 +160,7 @@ function fn_delete(code){
                         <td><c:out value="${result.gid}" /></td>
                         <td><c:out value="${result.name}" /></td>
                         <td>
-							<button type="button">수정</button>
+							<button type="button" onclick="fn_update('${result.code}');">수정</button>
 							<button type="button" onclick="fn_delete('${result.code}');">삭제</button>
 						</td>
                     </tr>

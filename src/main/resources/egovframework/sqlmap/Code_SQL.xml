@@ -15,4 +15,16 @@
 	<select id="codeDAO.selectCodesCount" resultClass="java.lang.Integer">
 		SELECT count(*) as cnt from codes
 	</select>
+	
+	<delete id="codeDAO.deleteCodes" >
+		DELETE from codes WHERE code=#code#
+	</delete>
+		
+	<select id="codeDAO.selectCodesDetail" resultClass="codeVO">
+		SELECT code, gid, name from codes WHERE code=#code#
+	</select>
+	
+	<update id="codeDAO.updateCodes" >
+		UPDATE codes SET gid=#gid#, name=#name# where code=#code#
+	</update>
 </sqlMap>
