@@ -1,0 +1,22 @@
+# Eclipse 관련 파일
+.classpath
+.project
+.settings/
+
+# 빌드 디렉터리
+/build/
+/bin/
+target/
+out/
+
+# 로그 파일
+*.log
+
+# 임시 파일
+*.tmp
+*.swp
+*.bak
+
+# IDE 디렉터리
+.idea/
+.vscode/
