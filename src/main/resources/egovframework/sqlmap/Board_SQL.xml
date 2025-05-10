@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Boardspace">
+
+    <typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+    <typeAlias alias="boardVO" type="main.service.BoardVO"/>
+
+	<select id="BoardDAO.selectBoardList" resultClass="boardVO" parameterClass="map">
+	    <![CDATA[
+	        SELECT * FROM (
+	            SELECT ROWNUM AS RNUM, A.* FROM (
+	                SELECT * FROM NBOARD
+	                WHERE 1=1
+	                ]]>
+	                <isEqual property="searchType" compareValue="title">
+	                    <![CDATA[ AND TITLE LIKE '%' || #searchKeyword# || '%' ]]>
+	                </isEqual>
+	                <isEqual property="searchType" compareValue="content">
+	                    <![CDATA[ AND CONTENT LIKE '%' || #searchKeyword# || '%' ]]>
+	                </isEqual>
+	                <isEqual property="searchType" compareValue="name">
+	                    <![CDATA[ AND NAME LIKE '%' || #searchKeyword# || '%' ]]>
+	                </isEqual>
+	                <![CDATA[
+	                ORDER BY UNQ DESC
+	            ) A
+	            WHERE ROWNUM <= #end#
+	        )
+	        WHERE RNUM >= #start#
+	    ]]>
+	</select>
+    
+	<select id="BoardDAO.selectBoardTotalCount" resultClass="int" parameterClass="map">
+	    <![CDATA[
+	        SELECT COUNT(*) FROM NBOARD
+	        WHERE 1=1
+	    ]]>
+	    <isEqual property="searchType" compareValue="title">
+	        <![CDATA[ AND TITLE LIKE '%' || #searchKeyword# || '%' ]]>
+	    </isEqual>
+	    <isEqual property="searchType" compareValue="content">
+	        <![CDATA[ AND CONTENT LIKE '%' || #searchKeyword# || '%' ]]>
+	    </isEqual>
+	    <isEqual property="searchType" compareValue="name">
+	        <![CDATA[ AND NAME LIKE '%' || #searchKeyword# || '%' ]]>
+	    </isEqual>
+	    <![CDATA[
+	    ]]>
+	</select>
+    
+    <!-- 게시글 등록 -->
+    <insert id="BoardDAO.insertBoard" parameterClass="boardVO">
+        INSERT INTO NBOARD (UNQ, TITLE, NAME, PASS, CONTENT)
+        VALUES (NBOARD_SEQ.NEXTVAL, #title#, #name#, #pass#, #content#)
+    </insert>
+
+    <select id="BoardDAO.selectBoardDetail" parameterClass="int" resultClass="boardVO">
+        SELECT * FROM NBOARD WHERE UNQ = #unq#
+    </select>
+
+    <update id="BoardDAO.updateBoard" parameterClass="boardVO">
+        UPDATE NBOARD SET TITLE=#title#, NAME=#name#, CONTENT=#content# WHERE UNQ=#unq#
+    </update>
+
+    <delete id="BoardDAO.deleteBoard" parameterClass="int">
+        DELETE FROM NBOARD WHERE UNQ = #unq#
+    </delete>
+
+</sqlMap>

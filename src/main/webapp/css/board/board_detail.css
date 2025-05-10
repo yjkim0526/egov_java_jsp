@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+.container-detail {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.detail-heading {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 24px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.detail-item label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+.detail-value {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    color: #333;
+    word-break: break-word;
+}
+
+.detail-value.content {
+    min-height: 150px;
+    white-space: pre-wrap;
+}
+
+.btn-area {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+.detail-item {
+    margin-bottom: 20px;
+}
+
+.detail-label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.detail-box {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    font-size: 15px;
+    color: #000;
+}
+
+.detail-box.content {
+    white-space: pre-wrap;
+    min-height: 160px;
+}
+
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.meta-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.meta-item .label {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.meta-item .value {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #000;
+    width: 100%;
+    box-sizing: border-box;
+}
