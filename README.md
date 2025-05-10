@@ -35,5 +35,6 @@ CREATE TABLE NBOARD (
 ## URL
 http://localhost:9080/myproject_new/boardList.do
 
+![image](https://github.com/user-attachments/assets/7788bbb5-33f9-42df-ac27-f68f17a17e16)
 
 
