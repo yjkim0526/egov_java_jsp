@@ -32,8 +32,8 @@ CREATE TABLE NBOARD (
     REGDATE TIMESTAMP DEFAULT SYSTIMESTAMP
 );
 
-## 게시판 목록
+## URL
 http://localhost:9080/myproject_new/boardList.do
 
-![image](https://github.com/user-attachments/assets/9d56e616-4bdb-4096-9314-4ce8ff211227)
+
 
