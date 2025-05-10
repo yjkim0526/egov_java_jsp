@@ -1,26 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
-    <Appenders>
-        <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d %5p [%c] %m%n" />
-        </Console>
-    </Appenders>
-    <Loggers>
-        <Logger name="java.sql" level="INFO" additivity="false">
-            <AppenderRef ref="console" />
-        </Logger>
-        <Logger name="egovframework" level="DEBUG" additivity="false">
-            <AppenderRef ref="console" />
-        </Logger>
-          <!-- log SQL with timing information, post execution -->
-        <Logger name="jdbc.sqltiming" level="INFO" additivity="false">
-            <AppenderRef ref="console" />
-        </Logger>
-        <Logger name="org.springframework" level="INFO" additivity="false">
-            <AppenderRef ref="console" />
-        </Logger>
-        <Root level="INFO">
-            <AppenderRef ref="console" />
-        </Root>
-    </Loggers>
+
+  <!-- 로그 출력을 콘솔과 파일로 동시에 출력 -->
+  <Appenders>
+
+    <!-- 콘솔에 로그 출력 설정 -->
+    <Console name="console" target="SYSTEM_OUT">
+      <!-- 로그 포맷: 날짜, 레벨, 클래스명, 메시지 출력 -->
+      <PatternLayout pattern="%d %5p [%c] %m%n" />
+    </Console>
+
+    <!-- 파일에 로그 출력 설정 (롤링 파일) -->
+    <RollingFile name="file" fileName="logs/app.log"
+                 filePattern="logs/app-%d{yyyy-MM-dd}.log.gz">
+      <!-- 로그 포맷: 날짜, 레벨, 클래스명, 메시지 출력 -->
+      <PatternLayout pattern="%d %5p [%c] %m%n" />
+      
+      <!-- 로그 파일 회전 정책: 하루마다 새로운 파일 생성 -->
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1" />
+      </Policies>
+    </RollingFile>
+  </Appenders>
+
+  <!-- 로그 레벨 설정 -->
+  <Loggers>
+
+    <!-- JDBC 로그: SQL 실행 쿼리 관련 로그 -->
+    <Logger name="java.sql" level="INFO" additivity="false">
+      <!-- 콘솔에 SQL 로그 출력 -->
+      <AppenderRef ref="console" />
+    </Logger>
+
+    <!-- main 관련 로그: 해당 프레임워크 내의 로그 출력 -->
+    <Logger name="main" level="DEBUG" additivity="false">
+      <!-- 콘솔과 파일 모두에 출력 -->
+      <AppenderRef ref="console" />
+      <AppenderRef ref="file" />
+    </Logger>
+
+    <!-- eGovFrame 관련 로그: 해당 프레임워크 내의 로그 출력 -->
+    <Logger name="egovframework" level="INFO" additivity="false">
+      <!-- 콘솔과 파일 모두에 출력 -->
+      <AppenderRef ref="console" />
+      <AppenderRef ref="file" />
+    </Logger>
+
+    <!-- 프로젝트 내부 로깅: 자신의 프로젝트 로그도 파일로 기록 -->
+	<Logger name="egovframework.example.sample.*" level="INFO" additivity="false">
+	  <AppenderRef ref="console" />
+	  <AppenderRef ref="file" />
+	</Logger>    
+
+
+    <!-- Spring 관련 로그: Spring 프레임워크의 로그 출력 -->
+    <Logger name="org.springframework" level="INFO" additivity="false">
+      <AppenderRef ref="console" />
+    </Logger>
+
+    <!-- 기본 루트 로거 설정: INFO 레벨로 전체 로그를 기록 -->
+    <Root level="INFO">
+      <AppenderRef ref="console" />
+      <AppenderRef ref="file" />
+    </Root>
+  </Loggers>
+
 </Configuration>
