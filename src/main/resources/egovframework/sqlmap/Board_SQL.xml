@@ -25,7 +25,7 @@
 	                    <![CDATA[ AND NAME LIKE '%' || #searchKeyword# || '%' ]]>
 	                </isEqual>
 	                <![CDATA[
-	                ORDER BY UNQ DESC
+	                ORDER BY regdate DESC
 	            ) A
 	            WHERE ROWNUM <= #end#
 	        )
