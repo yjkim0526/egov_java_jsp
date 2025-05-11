@@ -1,6 +1,3 @@
-# 1. eGovFrame 게시판 
-# 2. 자전거 사고 다발지역 네이버 지도 시각화 
-
 
 ## 기술 스택
 Java 기반의 eGovFrame + JSP (JSTL) + iBATIS + Oracle
@@ -22,9 +19,6 @@ Java 기반의 eGovFrame + JSP (JSTL) + iBATIS + Oracle
 - 검색 기능 (제목, 내용, 작성자)
 - 페이지네이션 (10개 단위)
 
-- http://localhost:9080/myproject_new/boardList.do
-- docs/boardList.png
-
 
 ## 2. 네이버 지도 시각화 주요 기능
 - 구군 및 연도 선택 UI
@@ -32,8 +26,18 @@ Java 기반의 eGovFrame + JSP (JSTL) + iBATIS + Oracle
   ( 도로교통공단 API : https://www.data.go.kr/data/15057732/openapi.do ) 
 - 네이버 지도 시각화 (마커 표시 + 툴팁 표시 (Overlay), 마커 클릭시 상세 정보 표시)
 
-- http://localhost:9080/myproject_new/bikeMap.do?gugun=140&year=2023
-- docs/bikeMap.png
+
+## URL
+- HOME : http://localhost:9080/myproject_new/
+- 게시판 : http://localhost:9080/myproject_new/boardList.do
+- 네이버지도 : http://localhost:9080/myproject_new/bikeMap.do?gugun=140&year=2023
+
+
+## images 
+docs/home.png
+docs/board.png
+docs/board_detail.png
+docs/bikeMap.png
 
 
 ## 데이터베이스 테이블 (게시판)
@@ -47,3 +51,4 @@ CREATE TABLE NBOARD (
     HITS    NUMBER DEFAULT 0,
     REGDATE TIMESTAMP DEFAULT SYSTIMESTAMP
 );
+
