@@ -39,6 +39,13 @@
       <AppenderRef ref="file" />
     </Logger>
 
+    <!-- main 관련 로그: 해당 프레임워크 내의 로그 출력 -->
+    <Logger name="map" level="DEBUG" additivity="false">
+      <!-- 콘솔과 파일 모두에 출력 -->
+      <AppenderRef ref="console" />
+      <AppenderRef ref="file" />
+    </Logger>
+
     <!-- eGovFrame 관련 로그: 해당 프레임워크 내의 로그 출력 -->
     <Logger name="egovframework" level="INFO" additivity="false">
       <!-- 콘솔과 파일 모두에 출력 -->

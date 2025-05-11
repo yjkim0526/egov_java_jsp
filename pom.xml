@@ -132,6 +132,20 @@
 			<version>2.5.0</version>
 		</dependency>
 
+		<!-- json 설정 추가 -->
+	    <dependency>
+	        <groupId>org.json</groupId>
+	        <artifactId>json</artifactId>
+	        <version>20240303</version>
+	    </dependency>
+	    
+		<!-- jackson-databind 의존성 추가 -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.14.1</version> <!-- 버전은 환경에 따라 조절 -->
+		</dependency>
+
         <!-- mysql이나 oracle DB 사용시 아래 설정 추가
         <dependency>
             <groupId>com.googlecode.log4jdbc</groupId>
