@@ -1,7 +1,5 @@
 
-## 기술 스택
-Java 기반의 eGovFrame + JSP (JSTL) + iBATIS + Oracle
-
+## # eGovFrame + JSP (JSTL) + iBATIS + Oracle
 - eGovFramework 3.10
 - Java 8
 - JSP + JSTL
@@ -9,6 +7,7 @@ Java 기반의 eGovFrame + JSP (JSTL) + iBATIS + Oracle
 - Oracle 11g 
 - Apache Tomcat 9.x 
 - Eclipse IDE (eGovFrame Dev 환경)
+
 
 
 ## 1. 게시판 주요 기능
@@ -20,11 +19,13 @@ Java 기반의 eGovFrame + JSP (JSTL) + iBATIS + Oracle
 - 페이지네이션 (10개 단위)
 
 
+
 ## 2. 네이버 지도 시각화 주요 기능
 - 구군 및 연도 선택 UI
 - 공공데이터 데이터 수신 (위도, 경도, 장소명, 사고건수)
   ( 도로교통공단 API : https://www.data.go.kr/data/15057732/openapi.do ) 
 - 네이버 지도 시각화 (마커 표시 + 툴팁 표시 (Overlay), 마커 클릭시 상세 정보 표시)
+
 
 
 ## URL
@@ -33,11 +34,13 @@ Java 기반의 eGovFrame + JSP (JSTL) + iBATIS + Oracle
 - 네이버지도 : http://localhost:9080/myproject_new/bikeMap.do?gugun=140&year=2023
 
 
+
 ## images 
-docs/home.png
-docs/board.png
-docs/board_detail.png
-docs/bikeMap.png
+- docs/home.png
+- docs/board.png
+- docs/board_detail.png
+- docs/bikeMap.png
+
 
 
 ## 데이터베이스 테이블 (게시판)
