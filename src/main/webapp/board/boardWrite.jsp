@@ -43,25 +43,6 @@ function fn_submit() {
     // 유효성 검사 통과 시 폼 제출
     $('form[name="frm"]').submit();
     
-/*     var formData = $("#frm").serialize(); 
-    $.ajax({
-    	type: "POST",
-    	data: formData,
-    	url: "boardWriteSave.do",
-    	dataType: "text",  // return type
-    	success: function(data){
-    		console.log("success");
-    		if(data == "ok"){
-    			alert("save Ok");
-    			location = "boardList.do";
-    		}
-    	},    		
-    	error:function(){
-    		console.log("error");
-    		alert("오류 발생");
-    	}
-    }); */
-
 }
 
 function validateContent() {
@@ -97,7 +78,6 @@ function validateContent() {
                 <input type="text" name="title" id="title" class="form-input">
             </div>
 
-            <!-- name/pass 한 줄 -->
             <div class="form-row">
                 <div class="form-group half">
                     <label for="pass" class="form-label">암호</label>

@@ -71,7 +71,6 @@ html, body {
     resize: vertical;
 }
 
-/* name/pass 나란히 */
 .form-row {
     display: flex;
     gap: 1rem;
