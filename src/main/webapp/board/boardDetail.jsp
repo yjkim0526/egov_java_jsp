@@ -5,10 +5,30 @@
 <head>
     <meta charset="UTF-8">
     <title>게시글 상세보기</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="<c:url value='/css/board/board_detail.css'/>" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
 </head>
+<script>
+	// localStorage 저장 
+    document.addEventListener('DOMContentLoaded', function () {
+        var postId = ${result.unq}; 
+        var viewedKey = 'viewed_' + postId;
+        if (!localStorage.getItem(viewedKey)) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "increaseHit.do?unq=" + encodeURIComponent(postId), true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    localStorage.setItem(viewedKey, "true");
+                }
+            };
+            xhr.send();
+        }
+    });
+</script>
+
 <body>
+
 	<c:if test="${not empty errorMsg}">
 	    <script>alert('${errorMsg}');</script>
 	</c:if>
@@ -82,6 +102,7 @@ function checkPassword(unq, mode) {
         }
     }
 }
+
 </script>
     
 </body>

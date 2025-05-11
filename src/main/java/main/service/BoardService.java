@@ -10,4 +10,5 @@ public interface BoardService {
     BoardVO selectBoardDetail(int unq);
     void updateBoard(BoardVO vo);
     void deleteBoard(int unq);
+    void updateBoardHits(int unq);
 }

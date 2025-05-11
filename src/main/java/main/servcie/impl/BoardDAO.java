@@ -33,4 +33,9 @@ public class BoardDAO extends EgovAbstractDAO {
     public void deleteBoard(int unq) {
         delete("BoardDAO.deleteBoard", unq);
     }
+
+	public void updateBoardHits(int unq) {
+		update("BoardDAO.updateBoardHits", unq);
+	}
+    
 }

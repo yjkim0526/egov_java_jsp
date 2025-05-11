@@ -117,7 +117,6 @@
 	    }
 	};
 
-
     var locations = ${jsonData};
 
     if (!locations || locations.length === 0) {

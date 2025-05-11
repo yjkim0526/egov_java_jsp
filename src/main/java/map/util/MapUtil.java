@@ -32,7 +32,7 @@ public class MapUtil {
 				+ "ServiceKey=" + API_KEY
 				+ "&searchYearCd=" + year
 				+ "&siDo=27"
-				+ "&guGun=" +gugun
+				+ "&guGun=" + gugun
 				+ "&type=json"
 				+ "&numOfRows=10"
 				+ "&pageNo=1";

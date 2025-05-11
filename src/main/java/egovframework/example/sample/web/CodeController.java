@@ -20,7 +20,7 @@ public class CodeController {
 	@Resource(name="codeService")
 	private CodeService codeService;
 	
-	@RequestMapping(value="codeWrite.do")
+	@RequestMapping(value="/codeWrite.do")
 	public String codeWrite() {
 		return "code/codeWrite";
 	}

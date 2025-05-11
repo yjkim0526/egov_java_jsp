@@ -73,7 +73,7 @@ body {
     white-space: nowrap;
 }
 
-/* 상세 정보 패널 */
+/* 상세 정보 */
 #info-panel {
     margin-top: 20px;
     border: 1px solid #ccc;
@@ -82,7 +82,7 @@ body {
     border-radius: 6px;
 }
 
-/* 사고 테이블 */
+/* 테이블 */
 .accident-table {
     width: 100%;
     border-collapse: collapse;

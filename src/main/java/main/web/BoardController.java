@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import main.service.BoardService;
@@ -78,6 +79,14 @@ public class BoardController {
         return "redirect:/boardList.do"; 
     }
 
+    // 조회수만 증가
+    @RequestMapping("/increaseHit.do")
+    @ResponseBody
+    public void increaseHit(@RequestParam("unq") int unq) {
+    	logger.info("==================== increaseHit.do ");
+        boardService.updateBoardHits(unq);
+    }
+    
     @RequestMapping("/boardDetail.do")
     public String boardDetail(@RequestParam("unq") int unq, ModelMap model) {
     	logger.info("==================== boardDetail.do ");

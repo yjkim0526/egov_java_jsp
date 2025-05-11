@@ -69,4 +69,8 @@
         DELETE FROM NBOARD WHERE UNQ = #unq#
     </delete>
 
+	<update id="BoardDAO.updateBoardHits" parameterClass="int">
+	    UPDATE NBOARD SET hits = hits + 1 WHERE unq = #unq#
+	</update>
+
 </sqlMap>

@@ -39,7 +39,7 @@ public class MapController {
         model.addAttribute("gugun", gugun);
         model.addAttribute("year", year);
         
-		return "map/bikeMap";
+        return "map/bikeMap";
 	}
 
 }

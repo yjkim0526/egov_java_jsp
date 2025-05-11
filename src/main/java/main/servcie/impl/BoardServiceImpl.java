@@ -38,4 +38,9 @@ public class BoardServiceImpl extends EgovAbstractServiceImpl implements BoardSe
         boardDAO.deleteBoard(unq);
     }
 
+	@Override
+	public void updateBoardHits(int unq) {
+		boardDAO.updateBoardHits(unq);
+	}
+
 }
